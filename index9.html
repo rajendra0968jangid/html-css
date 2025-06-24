@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+                i:hover{
+                    
+                    transition: s 
+                }
+            </style>
+    </head>
+    <body>
+        <div>
+            <div style="display: flex;gap: 20px;">
+                <div class="headline"> <i class="fa-solid fa-house"></i>
+                    one</div>
+                <div class="headline1">two</div>
+                <div class="headline2">three</div>
+            </div>
+            <div style="display: flex;gap: 20px;">
+                <div>one</div>
+                <div>two</div>
+                <div>three</div>
+
+            </div>
+        </div>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+                    ScrollReveal().reveal(".headline", {
+                        delay: 500,
+                        duration: 750,
+                        distance: "30px",
+                        reset: false,
+                        origin: "bottom",
+                      });
+                    ScrollReveal().reveal(".headline1", {
+                        delay: 600,
+                        duration: 850,
+                        distance: "40px",
+                        reset: false,
+                        origin: "bottom",
+                      });
+                    ScrollReveal().reveal(".headline2", {
+                        delay: 700,
+                        duration: 950,
+                        distance: "50px",
+                        reset: false,
+                        origin: "bottom",
+                      });
+                </script>
+    </body>
+</html>

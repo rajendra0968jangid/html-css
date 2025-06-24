@@ -1,0 +1,43 @@
+- name: Deploy a website using Apache and Git
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    repo_url: "https://github.com/rajendra0968jangid/htmlcodelive.git"
+    repo_dest: "/tmp/webapp"
+
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Apache2
+      apt:
+        name: apache2
+        state: present
+
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+
+    - name: Remove previous clone (if exists)
+      file:
+        path: "{{ repo_dest }}"
+        state: absent
+
+    - name: Clone the Git repository
+      git:
+        repo: "{{ repo_url }}"
+        dest: "{{ repo_dest }}"
+        version: HEAD
+
+    - name: Clear Apache web root
+      file:
+        path: /var/www/html
+        state: absent
+
+    - name: Copy website to Apache web root
+      copy:
+        src: "{{ repo_dest }}/"
+        dest: /var/www/html/
